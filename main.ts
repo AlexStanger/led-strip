@@ -1,7 +1,44 @@
-input.onButtonPressed(Button.A, function () {
-    strip.showRainbow(1, 360)
-    strip.show()
+let strip = neopixel.create(DigitalPin.P0, 15, NeoPixelMode.RGB)
+loops.everyInterval(500, function () {
+    basic.showLeds(`
+        . # # # .
+        # . . . #
+        # # # # #
+        # . . . #
+        # . . . #
+        `)
+    basic.pause(100)
+    basic.showLeds(`
+        # . . . .
+        # . . . .
+        # . . . .
+        # . . . .
+        # # # # .
+        `)
+    basic.pause(100)
+    basic.showLeds(`
+        # # # # .
+        # . . . .
+        # # # . .
+        # . . . .
+        # # # # .
+        `)
+    basic.pause(100)
+    basic.showLeds(`
+        # . . . #
+        . # . # .
+        . . # . .
+        . # . # .
+        # . . . #
+        `)
+    basic.pause(100)
 })
-let strip: neopixel.Strip = null
-strip = neopixel.create(DigitalPin.P0, 15, NeoPixelMode.RGB)
-strip.showColor(neopixel.colors(NeoPixelColors.Red))
+basic.forever(function () {
+    if (input.buttonIsPressed(Button.A)) {
+        strip.showRainbow(100, 300)
+        strip.show()
+    } else {
+        strip.clear()
+        strip.show()
+    }
+})

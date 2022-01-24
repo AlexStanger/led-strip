@@ -1,5 +1,5 @@
 {
-    "name": "LED strip",
+    "name": "LED Strip",
     "description": "",
     "dependencies": {
         "core": "*",
